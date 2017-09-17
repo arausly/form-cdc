@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+    body
+    {
+    	font-family: "Montserrat", sans-serif
+    }
+    h1
+    {
+    	color: green;
+    }
+    #wrapper
+    {
+    	position: absolute;
+    	left: 40%;
+    	width: 500px;
+    }
+    .field{
+    	display: block;
+    	padding: 10px;
+    }
+    .long-label
+    {
+    	display: block;
+    }
+    input[type="text"] 
+    {
+      width: 300px;
+    }
+    textarea
+    {
+    	width: 300px;
+    }
+    </style>
+
+	<script type="text/javascript">
+     function notify () {
+       alert("Thanks for Sharing!");
+     }
+	</script>
+<title>How Was Your Day?</title>
+</head>
+<body>
+<div id="wrapper">
+<h1>How Was Your Day?</h1>
+<form action="http://127.0.0.1:8080/submit" method="post">
+	<div class="field">
+	<label class="long-label">Name</label>
+	<input type="text" name="name"></div>
+	<div class="field">
+	<label class="long-label">Sex </label> 
+	<label>Male</label><input type="radio" value="Male" name="sex">
+	<label>Female</label><input type="radio" value="Female" name="sex"></div>
+	<div class="field">
+	<label class="long-label">Did you wake up happy?</label>
+	<label>Yes</label>
+	<input type="radio" value="Yes" name="q1">
+	<label>No</label><input type="radio" value="No" name="q1"></div>
+	<div class="field">
+	<label class="long-label">How many classes did you have today?</label>
+	<input type="text" name="q2"></div>
+    <div class="field">
+    <label class="long-label">What was the best thing that happened to you today?</label>
+    <textarea id="experience" name="q3"></textarea></div>
+    <div class="field">
+    <button>Submit</button>
+    <!-- do onsubmit -->
+ </form>
+</div>	
+</body>
+</html>
