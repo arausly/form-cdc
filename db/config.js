@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const {DB_STORE} = require('../configjs');
 
-const db = "mongodb://root:1234@ds129004.mlab.com:29004/cdc_form"
+const db =DB_STORE;
 mongoose.connect(db);
 mongoose.connection
 .once('connected',()=>{console.log('connected')})
