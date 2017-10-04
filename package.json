@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "auto-start": "nodemon --exec \"npm start\""
   },
   "keywords": [],
+  "engine": {
+    "version": "8.1.3"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -16,6 +20,7 @@
     "express": "^4.15.4",
     "express-flash": "0.0.2",
     "express-session": "^1.15.5",
+    "favicon": "0.0.2",
     "mongoose": "^4.11.10",
     "morgan": "^1.8.2"
   }
