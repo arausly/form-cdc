@@ -8,6 +8,7 @@ const flash = require('express-flash');
 const morgan = require('morgan');
 const favicon = require('favicon');
 const mongoose = require('mongoose');
+const async = require('async');
 
 
 const app = express();
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(session({
   key:'cdcForm.sid',
   resave:true,
-  saveUninitialized:false,
+  saveUninitialized:true,
   secret:'this_is_bad_practice',
   store: new mongoStore({url:'mongodb://sessions:1234@ds129004.mlab.com:29004/cdc_form',
   autoReconnect:true,
@@ -64,8 +65,12 @@ app.patch('/user/:_id',(req,res,next)=>{
     formModel.findById(_id)
           .then(user =>{
                if(!user) return Promise.reject();
-                res.redirect('/');
-                res.status(200).send(user);  
+                async.parallel([
+                    function(){res.redirect('/');},
+                    function(){
+                        res.status(200)
+                        .send(user)
+                    }],callback);
           })
           .catch(err => console.error(err));
 });
